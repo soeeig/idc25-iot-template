@@ -9,6 +9,6 @@ This repository is a template for participants in the Internet of Thinigs worksh
    - Option 2: Create a new sketch in Arduino IDE. Copy the code from `iot_blynk.ino` and paste it there.
     
 2. **Install Prerequisites**
-   - Ensure you have the [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/) installed.
+   - Ensure you have the [Arduino IDE](https://www.arduino.cc/en/software) and PubSubClient library installed.
    - Install the ESP32 board support via the Boards Manager.
    - In the Arduino IDE, install the PubSubClient library using the Library Manager
