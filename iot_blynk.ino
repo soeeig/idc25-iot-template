@@ -31,14 +31,12 @@ void callback(char* topic, byte* message, unsigned int length) {
   }
   Serial.println(payload);
 
-  if (payload.topic == "downlink/V2") {
-    if (payload.equalsIgnoreCase("1")) {
-      Serial.println("LED turned on");
-      digitalWrite(LED_PIN, HIGH);
-    } else if (payload.equalsIgnoreCase("0")) {
-      Serial.println("LED turned off");
-      digitalWrite(LED_PIN, LOW);
-    }
+  if (payload.equalsIgnoreCase("1")) {
+    Serial.println("LED turned on");
+    digitalWrite(LED_PIN, HIGH);
+  } else if (payload.equalsIgnoreCase("0")) {
+    Serial.println("LED turned off");
+    digitalWrite(LED_PIN, LOW);
   }
 }
 
