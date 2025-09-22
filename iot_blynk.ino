@@ -10,14 +10,11 @@ const char* password = "password";
 
 const char* mqtt_server = "blynk.cloud";
 const int mqtt_port = 1883;
-   
-const char* mqtt_server = "blynk.cloud";
-const int mqtt_port = 1883;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-String pubTopic = String("ds/") + "V0";
+String pubTopic = String("ds/") + "V1";
 String subTopic = "downlink/#";
 
 void callback(char* topic, byte* message, unsigned int length) {
