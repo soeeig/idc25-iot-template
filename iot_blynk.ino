@@ -17,8 +17,8 @@ const int mqtt_port = 1883;
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-String pubTopic = String("ds/") + "V0";
-String subTopic = "downlink/#";
+String pubTopic = String("ds/") + "V1"; // Publish LDR value
+String subTopic = "downlink/#"; // Get all incoming messages
 
 void callback(char* topic, byte* message, unsigned int length) {
   Serial.print("📩 Message arrived [");
@@ -31,12 +31,14 @@ void callback(char* topic, byte* message, unsigned int length) {
   }
   Serial.println(payload);
 
-  if (payload.equalsIgnoreCase("1")) {
-    Serial.println("LED turned on");
-    digitalWrite(LED_PIN, HIGH);
-  } else if (payload.equalsIgnoreCase("0")) {
-    Serial.println("LED turned off");
-    digitalWrite(LED_PIN, LOW);
+  if (payload.topic == "downlink/V2") {
+    if (payload.equalsIgnoreCase("1")) {
+      Serial.println("LED turned on");
+      digitalWrite(LED_PIN, HIGH);
+    } else if (payload.equalsIgnoreCase("0")) {
+      Serial.println("LED turned off");
+      digitalWrite(LED_PIN, LOW);
+    }
   }
 }
 
